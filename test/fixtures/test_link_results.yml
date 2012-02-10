@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  code: 1
+  title: 
+  depth: 1
+  referer: MyString
+  content_type: MyString
+  response_time: 1
+  test_link: 
+
+two:
+  url: MyString
+  code: 1
+  title: 
+  depth: 1
+  referer: MyString
+  content_type: MyString
+  response_time: 1
+  test_link: 

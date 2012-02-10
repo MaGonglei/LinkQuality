@@ -1,0 +1,34 @@
+<h1>Listing test_tasks</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>ID</th>
+    <th>Person</th>
+    <th>Checktime</th>
+    <th>Test Links</th>
+    <th>Result</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @test_tasks.each do |test_task| %>
+      <tr>
+        <td><%= check_box_tag('checked',test_task.id) %> </td>
+        <td><%= test_task.id %></td>
+        <td><%= test_task.person %></td>
+        <td><%= test_task.checktime %></td>
+        <td><%= test_task.test_links.urls.split[0] + "..." %></td>
+        <td><%= test_task.result %> </td>
+
+        <td><%= link_to 'Show', test_task %></td>
+        <td><%= link_to 'Edit', edit_test_task_path(test_task) %></td>
+        <td><%= link_to 'Destroy', test_task, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'Check', check_test_task_path(test_task) %></td>
+
+      </tr>
+
+  <% end %>
+</table>
+
+<br/>

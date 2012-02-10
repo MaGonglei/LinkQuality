@@ -1,0 +1,9 @@
+
+<h3>Test Results Details:</h3>
+<h4>All Links Counts <%= @test_link_results.count %></h4>
+
+<%= render  @test_links_results_perpage %>
+
+<div> <%= page_entries_info @test_links_results_perpage,:entry_name => 'urls' %>   </div>
+
+<%= paginate @test_links_results_perpage %>

@@ -1,0 +1,36 @@
+<%= form_for(@test_task) do |f| %>
+    <% if @test_task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@test_task.errors.count, "error") %> prohibited this test_task from being saved:</h2>
+
+          <ul>
+            <% @test_task.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :person %><br />
+      <%= f.text_field :person %>
+    </div>
+    <div class="field">
+      <%= f.label :checktime %><br />
+      <%= f.datetime_select :checktime %>
+    </div>
+
+
+    <% @test_task.build_test_links if @test_task.test_links.nil? %>
+    <%= render :partial => 'test_links/form',
+               :locals => {:form => f} %>
+
+    <p>
+    <h3>Result:</h3>
+    <%= @test_task.result %>
+    </p>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

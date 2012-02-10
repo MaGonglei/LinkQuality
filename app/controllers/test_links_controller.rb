@@ -1,0 +1,5 @@
+class TestLinksController < ApplicationController
+
+end
+
+

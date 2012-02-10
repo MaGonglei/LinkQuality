@@ -1,0 +1,18 @@
+<div>
+  count:<%= test_link_result_counter + 1 %> <br/>
+  url:<%= test_link_result.url %>  <br/>
+  code: <%= test_link_result.code %>   <br/>
+  depth: <%= test_link_result.depth %>   <br/>
+  referer: <%= test_link_result.referer %>   <br/>
+  content_type: <%= test_link_result.content_type %>   <br/>
+  response_time: <%= test_link_result.response_time %>ms   <br/>
+  title: <%= test_link_result.title %>   <br/>
+  headers: <%= test_link_result.headers %>   <br/>
+  from_link_text: <%= test_link_result.from_link_text %>   <br/>
+  from_link_line_number: <%= test_link_result.from_link_line_number %>   <br/>
+  out_links_number: <%= test_link_result.out_links_number %>   <br/>
+  <% if false %>
+      links: <%= test_link_result.links  %>   <br/>
+  <% end %>
+  ------------------------------------------------------------------------   <br/>
+</div>
