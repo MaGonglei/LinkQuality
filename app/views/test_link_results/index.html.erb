@@ -1,9 +1,54 @@
 
+
 <h3>Test Results Details:</h3>
 <h4>All Links Counts <%= @test_link_results.count %></h4>
 
-<%= render  @test_links_results_perpage %>
+<%= form_tag({:controller => 'test_link_results', :action => 'index'},:method => 'get') do %>
+    <div><%= label_tag(:where,"Where (SQL)") %></div>
+    <div><%= text_field_tag(:where,params[:where]) %></div>
+    <div><%= label_tag(:per_page_numbers,'Per page numbers') %></div>
+    <div><%= text_field_tag(:per_page_numbers,params[:per_page_numbers]||25) %></div>
+    <div><%= submit_tag 'Apply' %></div>
+<% end %>
 
-<div> <%= page_entries_info @test_links_results_perpage,:entry_name => 'urls' %>   </div>
+<div id='column_setting'>
+  <% @test_link_results_perpage.first.attributes.each do |one| %>
+      <input class="<%= one[0] %>" type="checkbox" checked="true" >  <label for="<%= one[0] %>"><%= one[0] %></label> <br/>
+  <% end %>
+</div>
 
-<%= paginate @test_links_results_perpage %>
+<div> <%= page_entries_info @test_link_results_perpage %></div>
+<div> <%= paginate @test_link_results_perpage %></div>
+
+<table id='test_link_results'>
+  <thead>
+  <tr>
+    <% @test_link_results_perpage.first.attributes.each do |one| %>
+        <th class="<%= one[0] %>"><%= one[0] %></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @test_link_results_perpage.each do |test_link_result| %>
+      <tr>
+        <% test_link_result.attributes.each do |one| %>
+            <td class="<%= one[0] %>"><%= test_link_result.attributes["#{one[0]}"] %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+
+
+<div> <%= page_entries_info @test_link_results_perpage %></div>
+<div> <%= paginate @test_link_results_perpage %></div>
+
+
+
+
+
+
+

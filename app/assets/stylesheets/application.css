@@ -3,5 +3,37 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require_tree .
 */
+
+h1 {
+    color: green;
+    border_style:groove;
+    border: 3;}
+
+table {
+    table_layout: fixed;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+thead {
+    border_style: solid;
+    border: 1px;
+    margin: 10px;}
+
+th {
+    background-color: #daa520;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-overflow:ellipsis;
+}
+
+td {
+    border_style: groove;
+    border: 2px groove gray;
+    /*vertical_align: baseline;*/
+    padding-right: 5px;
+    padding-left: 5px;}
+

@@ -1,6 +1,7 @@
-<h1>Listing test_tasks</h1>
+<h2>Listing test_tasks</h2>
 
-<table>
+<table id='test_tasks'>
+  <thead>
   <tr>
     <th></th>
     <th>ID</th>
@@ -10,8 +11,12 @@
     <th>Result</th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
+  </thead>
 
+  <tbody>
   <% @test_tasks.each do |test_task| %>
       <tr>
         <td><%= check_box_tag('checked',test_task.id) %> </td>
@@ -28,7 +33,9 @@
 
       </tr>
 
+
   <% end %>
+  </tbody>
 </table>
 
 <br/>

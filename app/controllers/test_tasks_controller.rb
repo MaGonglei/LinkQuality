@@ -1,13 +1,10 @@
 #coding:utf-8
-require 'prawn'
-
 class TestTasksController < ApplicationController
 
   # GET /test_tasks
   # GET /test_tasks.json
   def index
     @test_tasks = TestTask.all
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +22,6 @@ class TestTasksController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @test_task }
-      format.pdf { render pdf:  generate_pdf(@test_task) }
     end
   end
 
@@ -119,13 +115,4 @@ class TestTasksController < ApplicationController
 
   end
 
-  private
-
-  def generate_pdf(client)
-    Prawn::Document.new do
-      text client.person, :align => :center
-      text "checktime: #{client.checktime}"
-      text "person: #{client.person}"
-    end.render
-  end
 end

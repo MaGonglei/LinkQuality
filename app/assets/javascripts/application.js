@@ -6,4 +6,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.dataTables.min
 //= require_tree .
+
+$(function() {
+//    $('#test_link_results').dataTable({
+//        "bPaginate": false,
+//        "bInfo": false
+//    });
+});
+
