@@ -1,20 +1,34 @@
 
 
-<h3>Test Results Details:</h3>
-<h4>All Links Counts <%= @test_link_results.count %></h4>
 
-<%= form_tag({:controller => 'test_link_results', :action => 'index'},:method => 'get') do %>
-    <div><%= label_tag(:where,"Where (SQL)") %></div>
-    <div><%= text_field_tag(:where,params[:where]) %></div>
-    <div><%= label_tag(:per_page_numbers,'Per page numbers') %></div>
-    <div><%= text_field_tag(:per_page_numbers,params[:per_page_numbers]||25) %></div>
-    <div><%= submit_tag 'Apply' %></div>
-<% end %>
+<h3>Test results details:</h3>
+<h4>All links counts <%= @test_link_results.count %></h4>
 
+<div id='sql_setting'>
+  <fieldset>
+    <legend>SQL setting</legend>
+    <%= form_tag({:controller => 'test_link_results', :action => 'index'},:method => 'get') do %>
+        <%= label_tag(:where,"Where (SQL)") %>
+        <%= text_field_tag(:where,params[:where]) %>
+        <%= label_tag(:order_by,"Order by (SQL)") %>
+        <%= text_field_tag(:order_by,params[:order_by]) %>
+        <%= label_tag(:per_page_number,'Per page number') %>
+        <%= text_field_tag(:per_page_number,params[:per_page_number]||25) %>
+        <%= submit_tag 'Apply' %>
+    <% end %>
+    <p id="sql_errors"><%= flash[:sql_errors] %></p>
+  </fieldset>
+
+</div>
 <div id='column_setting'>
-  <% @test_link_results_perpage.first.attributes.each do |one| %>
-      <input class="<%= one[0] %>" type="checkbox" checked="true" >  <label for="<%= one[0] %>"><%= one[0] %></label> <br/>
-  <% end %>
+  <fieldset>
+    <legend>column setting(clik to hide or display)</legend>
+    <div>
+      <% @test_link_results_perpage.first!.attributes.each do |one| %>
+          <input class="<%= one[0] %>" type="checkbox" checked="true" >  <label for="<%= one[0] %>"><%= one[0] %></label> <br/>
+      <% end %>
+    </div>
+  </fieldset>
 </div>
 
 <div> <%= page_entries_info @test_link_results_perpage %></div>
@@ -23,7 +37,7 @@
 <table id='test_link_results'>
   <thead>
   <tr>
-    <% @test_link_results_perpage.first.attributes.each do |one| %>
+    <% @test_link_results_perpage.first!.attributes.each do |one| %>
         <th class="<%= one[0] %>"><%= one[0] %></th>
     <% end %>
   </tr>
@@ -40,6 +54,7 @@
   </tbody>
 
 </table>
+
 
 
 
