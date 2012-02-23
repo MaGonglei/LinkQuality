@@ -91,7 +91,7 @@ class TestTasksController < ApplicationController
     @test_task.test_links.check_url
 
     respond_to do |format|
-      result_count = @test_task.test_links.test_link_results.size
+      result_count = @test_task.test_links.test_link_results.count
       if result_count != 0
         flash[:notice] = "Test Over,All test links result number = #{result_count}"
         @test_task.result = "通过"
