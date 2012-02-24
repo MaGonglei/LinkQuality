@@ -1,6 +1,6 @@
 source 'http://localhost:8808'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.1'
 
 gem 'kaminari','0.13.1'
 
@@ -18,9 +18,9 @@ gem 'robots',:require=>'nokogiri',:require =>'robots'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
+  gem 'sass-rails',   '~> 3.2'
  # gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '>= 1.0'
 end
 
 gem 'jquery-rails'

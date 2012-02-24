@@ -1,0 +1,14 @@
+<div id="notice"><%= flash[:notice] %></div>
+
+<div class="field">
+  <%= f.label :threads %><br />
+  <%= f.text_field :threads %>
+</div>
+<div class="field">
+  <%= f.label :depth_limit %><br />
+  <%= f.text_field :depth_limit %>
+</div>
+<div class="field">
+  <%= f.label :subdomains %><br />
+  <%= f.check_box :subdomains %>
+</div>

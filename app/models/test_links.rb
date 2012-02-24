@@ -17,7 +17,7 @@ class TestLinks < ActiveRecord::Base
 
 
   # Use anemone crawl web
-  def check_url threads=1,depth_limit=0,crawl_subdomains=true
+  def check_url threads=2,depth_limit=1,crawl_subdomains=true
     @test_links = self
 
     @test_links.test_link_results.clear

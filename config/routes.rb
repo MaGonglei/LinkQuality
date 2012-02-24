@@ -1,11 +1,14 @@
 LinkQuality::Application.routes.draw do
 
+
   resources :test_tasks do
     get 'check' ,:on => :member
     get 'search',:on => :collection
     resource :test_links
+    resource :test_setting , :controller => "TestSetting"
     resources :test_link_results
   end
+
 
 
   #match '*data_table_json' => 'test_link_results#data' ,:via => [:get, :post]

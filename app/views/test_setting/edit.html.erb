@@ -1,0 +1,12 @@
+<h3>Edit Test Setting</h3>
+
+<%= form_for([@test_task,@test_setting],:url => test_task_test_setting_path,:method => "put") do |f| %>
+
+    <%= render :partial => 'test_setting',
+               :locals => {:f => f} %>
+
+    <div>
+      <%= button_to "Update", :action => "update" %>
+    </div>
+
+<% end %>
