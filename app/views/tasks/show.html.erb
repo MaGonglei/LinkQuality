@@ -12,7 +12,7 @@
 
 <p>
 <h3>Test Link:</h3>
-<%= render :partial => 'link_test/link_test',:locals => {:link_test => @task.link_test} %>
+<%= render 'link_test'%>
 </p>
 
 <p>
@@ -25,7 +25,6 @@
   <% #TODO:notices for no results notices %>
   <%= link_to 'See Result Details',task_results_path(@task) %>
   <%= link_to 'Edit', edit_task_path(@task) %>
-  <%= link_to 'Test Setting', edit_task_setting_url(@task) %>
   <%= link_to 'Check', check_task_path(@task) %>
 </div>
 

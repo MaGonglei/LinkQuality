@@ -3,8 +3,6 @@ LinkQuality::Application.routes.draw do
   resources :tasks do
     get 'check' ,:on => :member
     get 'search',:on => :collection
-    resource :link_test , :controller => "LinkTest"
-    resource :setting , :controller => "Setting"
     resources :results
   end
 

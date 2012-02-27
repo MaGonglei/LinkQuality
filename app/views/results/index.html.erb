@@ -1,6 +1,3 @@
-
-
-
 <h3>Results details:</h3>
 <h4>All links counts <%= @results.count %></h4>
 
@@ -55,18 +52,8 @@
 
 </table>
 
-
-
-
 <div> <%= page_entries_info @results_perpage %></div>
 <div> <%= paginate @results_perpage %></div>
 
 
-<div><%= link_to 'Back',task_path(@link_test.task) %></div>
-
-
-
-
-
-
-
+<div><%= link_to 'Back',task_path(@task) %></div>

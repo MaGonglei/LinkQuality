@@ -1,5 +1,0 @@
-class LinkTestController < ApplicationController
-
-end
-
-

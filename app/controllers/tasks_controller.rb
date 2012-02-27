@@ -7,7 +7,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
-      format.rss { render xml:  @tasks.all}
     end
   end
 
@@ -74,12 +73,11 @@ class TasksController < ApplicationController
 
   def check
     @task = Task.find(params[:id])
-    @setting = @task.setting
 
-    @task.link_test.check_url @setting
+    @task.check_url
 
     respond_to do |format|
-      result_count = @task.link_test.results.count
+      result_count = @task.results.count
       if result_count != 0
         flash[:notice] = "Test Over,All test links result number = #{result_count}"
         @task.result = "通过"

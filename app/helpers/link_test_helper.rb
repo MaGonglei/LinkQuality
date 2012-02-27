@@ -1,3 +1,0 @@
-module LinkTestHelper
-
-end

@@ -12,18 +12,25 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :person %><br />
+      <%= f.label :person %>
       <%= f.text_field :person %>
-    </div>
-    <div class="field">
-      <%= f.label :checktime %><br />
+      <%= f.label :checktime %>
       <%= f.datetime_select :checktime %>
     </div>
 
+    <div class="field">
+      <%= f.label :threads %>
+      <%= f.text_field :threads %>
+      <%= f.label :depth_limit %>
+      <%= f.text_field :depth_limit %>
+      <%= f.label :subdomains %>
+      <%= f.check_box :subdomains %>
+    </div>
 
-    <% @task.build_link_test if @task.link_test.nil? %>
-    <%= render :partial => 'link_test/form',
-               :locals => {:form => f} %>
+    <div class="field">
+      <%= f.label :urls %><br />
+      <%= f.text_area :urls %>
+    </div>
 
     <p>
     <h3>Result:</h3>

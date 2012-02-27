@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120223081026) do
     t.string   "referer"
     t.string   "content_type"
     t.integer  "response_time"
-    t.integer  "link_test_id"
+    t.integer  "task_id"
     t.string   "headers"
     t.string   "from_link_text"
     t.integer  "from_link_line_number"
@@ -31,29 +31,15 @@ ActiveRecord::Schema.define(:version => 20120223081026) do
     t.datetime "updated_at"
   end
 
-  create_table "link_tests", :force => true do |t|
-    t.text     "urls",         :limit => 100000
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "link_tests", ["task_id"], :name => "index_link_tests_on_task_id"
-
-  create_table "settings", :force => true do |t|
-    t.integer  "threads",      :default => 1
-    t.integer  "depth_limit",  :default => 0
-    t.boolean  "subdomains",   :default => true
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "settings", ["task_id"], :name => "index_settings_on_task_id"
+  add_index "results", ["task_id"], :name => "index_results_on_task_id"
 
   create_table "tasks", :force => true do |t|
     t.string   "person"
     t.datetime "checktime"
+    t.text     "urls",         :limit => 100000
+    t.integer  "threads",      :default => 1
+    t.integer  "depth_limit",  :default => 0
+    t.boolean  "subdomains",   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "result",     :default => "nil"
