@@ -1,17 +1,15 @@
 LinkQuality::Application.routes.draw do
 
-
-  resources :test_tasks do
+  resources :tasks do
     get 'check' ,:on => :member
     get 'search',:on => :collection
-    resource :test_links
-    resource :test_setting , :controller => "TestSetting"
-    resources :test_link_results
+    resource :link_test , :controller => "LinkTest"
+    resource :setting , :controller => "Setting"
+    resources :results
   end
 
 
 
-  #match '*data_table_json' => 'test_link_results#data' ,:via => [:get, :post]
 
 
 
@@ -64,7 +62,7 @@ LinkQuality::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'test_tasks#index'
+  root :to => 'tasks#index'
 
   # See how all your routes lay out with "rake routes"
 

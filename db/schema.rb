@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120223081026) do
 
-  create_table "test_link_results", :force => true do |t|
+  create_table "results", :force => true do |t|
     t.string   "url"
     t.integer  "code"
     t.string   "title"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120223081026) do
     t.string   "referer"
     t.string   "content_type"
     t.integer  "response_time"
-    t.integer  "test_links_id"
+    t.integer  "link_test_id"
     t.string   "headers"
     t.string   "from_link_text"
     t.integer  "from_link_line_number"
@@ -31,27 +31,27 @@ ActiveRecord::Schema.define(:version => 20120223081026) do
     t.datetime "updated_at"
   end
 
-  create_table "test_links", :force => true do |t|
+  create_table "link_tests", :force => true do |t|
     t.text     "urls",         :limit => 100000
-    t.integer  "test_task_id"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "test_links", ["test_task_id"], :name => "index_test_links_on_test_task_id"
+  add_index "link_tests", ["task_id"], :name => "index_link_tests_on_task_id"
 
-  create_table "test_settings", :force => true do |t|
+  create_table "settings", :force => true do |t|
     t.integer  "threads",      :default => 1
     t.integer  "depth_limit",  :default => 0
     t.boolean  "subdomains",   :default => true
-    t.integer  "test_task_id"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "test_settings", ["test_task_id"], :name => "index_test_settings_on_test_task_id"
+  add_index "settings", ["task_id"], :name => "index_settings_on_task_id"
 
-  create_table "test_tasks", :force => true do |t|
+  create_table "tasks", :force => true do |t|
     t.string   "person"
     t.datetime "checktime"
     t.datetime "created_at"

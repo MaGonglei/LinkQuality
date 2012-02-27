@@ -1,0 +1,72 @@
+
+
+
+<h3>Results details:</h3>
+<h4>All links counts <%= @results.count %></h4>
+
+<div id='sql_setting'>
+  <fieldset>
+    <legend>SQL setting</legend>
+    <%= form_tag({:controller => 'results', :action => 'index'},:method => 'get') do %>
+        <%= label_tag(:where,"Where (SQL)") %>
+        <%= text_field_tag(:where,params[:where]) %>
+        <%= label_tag(:order_by,"Order by (SQL)") %>
+        <%= text_field_tag(:order_by,params[:order_by]) %>
+        <%= label_tag(:per_page_number,'Per page number') %>
+        <%= text_field_tag(:per_page_number,params[:per_page_number]||25) %>
+        <%= submit_tag 'Apply' %>
+    <% end %>
+    <p id="sql_errors"><%= flash[:sql_errors] %></p>
+  </fieldset>
+
+</div>
+<div id='column_setting'>
+  <fieldset>
+    <legend>column setting(clik to hide or display)</legend>
+    <div>
+      <% @results_perpage.first!.attributes.each do |one| %>
+          <input class="<%= one[0] %>" type="checkbox" checked="true" >  <label for="<%= one[0] %>"><%= one[0] %></label> <br/>
+      <% end %>
+    </div>
+  </fieldset>
+</div>
+
+<div> <%= page_entries_info @results_perpage %></div>
+<div> <%= paginate @results_perpage %></div>
+
+<table id='results'>
+  <thead>
+  <tr>
+    <% @results_perpage.first!.attributes.each do |one| %>
+        <th class="<%= one[0] %>"><%= one[0] %></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @results_perpage.each do |result| %>
+      <tr>
+        <% result.attributes.each do |one| %>
+            <td class="<%= one[0] %>"><%= result.attributes["#{one[0]}"] %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+
+
+
+<div> <%= page_entries_info @results_perpage %></div>
+<div> <%= paginate @results_perpage %></div>
+
+
+<div><%= link_to 'Back',task_path(@link_test.task) %></div>
+
+
+
+
+
+
+

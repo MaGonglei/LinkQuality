@@ -1,0 +1,12 @@
+<h3>Create Test Setting</h3>
+
+<%= form_for([@task,@setting], :url => task_setting_path) do |f| %>
+
+    <%= render :partial => 'setting',
+               :locals => {:f => f} %>
+
+    <div>
+      <%= button_to "Create", :action => "create"%>
+    </div>
+
+<% end %>

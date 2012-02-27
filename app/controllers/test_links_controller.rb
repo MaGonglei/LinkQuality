@@ -1,5 +1,0 @@
-class TestLinksController < ApplicationController
-
-end
-
-
