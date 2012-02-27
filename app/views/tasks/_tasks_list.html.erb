@@ -26,14 +26,11 @@
         <td><%= task.urls.split[0] + "..." %></td>
         <td><%= task.result %> </td>
 
-        <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
         <td><%= link_to 'Check', check_task_path(task) %></td>
-
+        <td><%= link_to 'See Result Details',task_results_path(task) %></td>
       </tr>
-
-
   <% end %>
   </tbody>
 </table>

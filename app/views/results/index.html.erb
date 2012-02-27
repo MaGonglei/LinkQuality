@@ -1,5 +1,6 @@
 <h3>Results details:</h3>
 <h4>All links counts <%= @results.count %></h4>
+<p><%= flash[:notice] %></p>
 
 <div id='sql_setting'>
   <fieldset>
@@ -56,4 +57,4 @@
 <div> <%= paginate @results_perpage %></div>
 
 
-<div><%= link_to 'Back',task_path(@task) %></div>
+<div><%= link_to 'Task Detatils',edit_task_path(@task) %></div>
