@@ -5,7 +5,7 @@
 <div>
   <% #TODO:notices for no results notices %>
   <%= link_to 'Destroy', task_path(@task), confirm: 'Are you sure?', method: :delete %>
-  <%= link_to 'See Result Details',task_results_path(@task) %>
+  <%= link_to 'Results Details',task_results_path(@task) %>
   <%= link_to 'Check', check_task_path(@task) %>
   <%= link_to 'TaskList', tasks_path %>
 </div>
