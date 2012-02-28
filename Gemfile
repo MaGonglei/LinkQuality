@@ -11,8 +11,7 @@ gem 'dynamic_form'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'anemone', '0.6.2'
-gem 'robots',:require=>'nokogiri',:require =>'robots'
+gem 'anemone', '0.7.2'
 
 
 # Gems used only for assets and not required
