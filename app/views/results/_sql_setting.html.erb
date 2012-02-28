@@ -1,0 +1,16 @@
+<div id='sql_setting'>
+  <fieldset>
+    <legend>SQL setting</legend>
+    <%= form_tag({:controller => 'results', :action => 'index'},:method => 'get') do %>
+        <%= label_tag(:where,"Where (SQL)") %>
+        <%= text_field_tag(:where,params[:where]) %>
+        <%= label_tag(:order_by,"Order by (SQL)") %>
+        <%= text_field_tag(:order_by,params[:order_by]) %>
+        <%= label_tag(:per_page_number,'Per page number') %>
+        <%= text_field_tag(:per_page_number,params[:per_page_number]||25) %>
+        <%= submit_tag 'Apply' %>
+    <% end %>
+    <p id="sql_errors"><%= flash[:sql_errors] %></p>
+  </fieldset>
+
+</div>

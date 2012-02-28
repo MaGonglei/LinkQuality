@@ -1,0 +1,11 @@
+<div id='column_setting'>
+  <fieldset>
+    <legend>column setting(clik to hide or display)</legend>
+    <div>
+      <% @results_perpage.first!.attributes.each do |one| %>
+          <input class="<%= one[0] %>" type="checkbox" checked="true" >  <label for="<%= one[0] %>"><%= one[0] %></label> <br/>
+      <% end %>
+    </div>
+  </fieldset>
+</div>
+

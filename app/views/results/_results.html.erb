@@ -1,0 +1,20 @@
+<table id='results'>
+  <thead>
+  <tr>
+    <% @results_perpage.first!.attributes.each do |one| %>
+        <th class="<%= one[0] %>"><%= one[0] %></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @results_perpage.each do |result| %>
+      <tr>
+        <% result.attributes.each do |one| %>
+            <td class="<%= one[0] %>"><%= result.attributes["#{one[0]}"] %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
