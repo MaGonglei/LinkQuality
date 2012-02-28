@@ -37,16 +37,18 @@ class Task < ActiveRecord::Base
           one_result.response_time = mypage.response_time
           one_result.title = the_doc.title unless the_doc.nil?
           one_result.headers = mypage.headers
+          one_result.date = mypage.headers['date']
+          one_result.server = mypage.headers['server']
+          one_result.content_length = mypage.headers['content-length']||""
+          one_result.connection_type = mypage.headers['connection']||""
+
+
           one_result.out_links_number = mypage.links.count
-          unless the_doc.nil?
-            the_links =  the_doc.xpath("//a")
-            one_result.links = " "
-            the_links.each do |link|
-              one_result.links << "url:#{link['href']} line:#{link.line}  text:#{link.text} \n"
-            end
-          end
+
+
           @task.results << one_result
         end
+
       end
     end
 

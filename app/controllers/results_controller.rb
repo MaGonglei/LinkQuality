@@ -6,7 +6,9 @@ class ResultsController < ApplicationController
 
     #TODO:Ajax get data
     #TODO:Order by column by click the column
-    @results = @task.results.select("url,code,depth,referer,content_type,response_time,title,headers,from_link_text,from_link_line_number,out_links_number").where(params[:where]).order(params[:order_by])
+    #TODO:Table cell width can change
+    select_string = "url,code,depth,referer,content_type,response_time,title,headers,date,server,content_length,connection_type,out_links_number"
+    @results = @task.results.select(select_string).where(params[:where]).order(params[:order_by])
 
     unless @results.exists?
       show_sql_errors(Exception.new("Not found results with Where=#{params[:where]} and Order by=#{params[:order_by]}"))

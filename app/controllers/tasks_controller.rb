@@ -21,6 +21,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    #TODO: Refresh the chetime
   end
 
   def create
