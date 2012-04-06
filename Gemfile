@@ -1,8 +1,9 @@
-source 'http://localhost:8808'
+source 'http://ruby.taobao.org/'
+source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '~> 3.2'
 
-gem 'kaminari','0.13.1'
+gem 'kaminari','0.13.1' #:git => 'git://github.com/MaGonglei/kaminari.git'
 
 gem 'therubyracer'
 gem 'dynamic_form'
@@ -11,7 +12,7 @@ gem 'dynamic_form'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'anemone', '0.7.2'
+gem 'anemone', '0.7.2' #:git => 'git://github.com/MaGonglei/anemone.git'
 
 
 # Gems used only for assets and not required
@@ -39,5 +40,7 @@ gem 'jquery-rails'
 
 group :test do
   # Pretty printed test output
-  gem 'turn', :require => false
+  #gem 'turn', :require => false
+  gem 'cucumber'
+  gem 'selenium-webdriver'
 end
