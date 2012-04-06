@@ -10,15 +10,15 @@ class ResultsController < ApplicationController
     select_string = "url,code,depth,referer,content_type,response_time,title,headers,date,server,content_length,connection_type,out_links_number"
     @results = @task.results.select(select_string).where(params[:where]).order(params[:order_by])
 
-    unless @results.exists?
-      show_sql_errors(Exception.new("Not found results with Where=#{params[:where]} and Order by=#{params[:order_by]}"))
-    else
-
+    if @results.exists?
       @results_perpage = @results.page(params[:page]).per params[:per_page_number]
 
       respond_to do |format|
         format.html # index.html.erb
       end
+
+    else
+      show_sql_errors(Exception.new("Not found results with Where=#{params[:where]} and Order by=#{params[:order_by]}"))
     end
 
   end
