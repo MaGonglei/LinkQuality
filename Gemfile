@@ -41,6 +41,7 @@ group :test do
   # Pretty printed test output
   #gem 'turn', :require => false
   gem 'cucumber-rails'
-  gem 'database_cleaner'
+  #gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'rspec-expectations'
 end
