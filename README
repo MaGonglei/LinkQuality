@@ -1,2 +1,7 @@
 LinkQuality
 A web tools to test link based on rails and anemone.
+
+Usage:
+Make sure you have the ruby on rails environment,
+then "bundle install",
+then "rails server".
